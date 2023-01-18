@@ -1,7 +1,19 @@
 {
-  "name": "NodeJS_APIs",
+  "name": "nodejs_apis",
   "version": "1.0.0",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "lodash": "^4.17.21"
+  },
+  "main": "1-intro code.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
   }
 }
