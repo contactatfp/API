@@ -1,9 +1,10 @@
 const http = require('http')
 
 const server = http.createServer((req, res) =>{
-    res.writeHeader(200, {'Content-Type': 'text/html'})
+
     const url = req.url
     if(url === '/'){
+        res.writeHeader(200, {'Content-Type': 'text/html'})
         res.write('<h1>Hello World</h1>')
         res.end('Home Page')
     }else if(url === '/about'){
