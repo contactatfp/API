@@ -1,25 +1,19 @@
-const http = require('http')
+const express = require('express')
+const path = require('path')
+const app = express()
 
-const server = http.createServer((req, res) =>{
+app.use(express.static(path.join(__dirname, './public')))
 
-    const url = req.url
-    if(url === '/'){
-        res.writeHeader(200, {'Content-Type': 'text/html'})
-        res.write('<h1>Hello World</h1>')
-        res.end('Home Page')
-    }else if(url === '/about'){
-        res.writeHeader(200, {'Content-Type': 'text/html'})
-        res.write('<h1>About Page</h1>')
-        res.end('About Page')
+// app.get('/', (req, res) => {
+//     res.sendFile(path.join(__dirname, './navbar-app/index.html'))
+//
+// })
 
-}else{
-    res.writeHeader(404, {'Content-Type': 'text/html'})
-    res.write('<h1>404</h1>')
-    }
+app.all('*', (req, res) => {
+    res.status(404).send('404 Not Found')
 })
 
-server.listen(8000)
-
-
-
+app.listen('8000', () => {
+    console.log('Server is running on port 8000')
+})
 
